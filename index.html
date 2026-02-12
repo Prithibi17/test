@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RideX</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div id="home">
+
+  <div id="map"></div>
+
+  <div class="top-bar">🚕 RideX</div>
+
+  <div class="bottom-sheet">
+
+    <div class="input-row">
+      <input id="pickup" placeholder="Pickup location"/>
+      <button class="map-btn" onclick="enableMapSelect('pickup')">📍</button>
+    </div>
+
+    <div class="input-row">
+      <input id="drop" placeholder="Drop location"/>
+      <button class="map-btn" onclick="enableMapSelect('drop')">📍</button>
+    </div>
+
+    <!-- Vehicle Selection -->
+    <div class="vehicle-row">
+      <button onclick="selectVehicle('bike')" id="bike-btn">🚲 Bike</button>
+      <button onclick="selectVehicle('auto')" id="auto-btn">🛺 Auto</button>
+      <button onclick="selectVehicle('cab')" id="cab-btn">🚗 Cab</button>
+    </div>
+
+    <button class="primary-btn" onclick="calculateRoute()">Find Route</button>
+
+    <div id="fare"></div>
+
+    <!-- Fare Breakdown -->
+    <div id="fare-breakdown"></div>
+
+    <div id="ride-status"></div>
+    <div id="eta"></div>
+
+    <!-- Ride Progress -->
+    <div id="progress" class="progress hidden">
+      <div id="progress-text">Waiting...</div>
+    </div>
+
+    <!-- Rider Card -->
+    <div id="rider-card" class="rider-card hidden">
+      <div class="rider-info">
+        <div class="rider-avatar">🧑‍✈️</div>
+        <div>
+          <div class="rider-name">Rahul Verma</div>
+          <div class="rider-rating">⭐ 4.8</div>
+        </div>
+      </div>
+
+      <div class="rider-actions">
+        <button onclick="callRider()">📞</button>
+        <button onclick="chatRider()">💬</button>
+      </div>
+    </div>
+
+    <button id="cancel-btn" class="cancel-btn hidden" onclick="cancelRide()">
+      Cancel Ride
+    </button>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
